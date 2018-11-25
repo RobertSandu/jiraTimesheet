@@ -141,7 +141,7 @@ class App extends Component {
 
     try {
       const projectCondition = ` AND project in (${selectedProjects.join()}) `;
-      const issues = await axios.get(`/rest/api/latest/search?jql=updated>="${from}" AND updated<="${to}" ${projectCondition} &maxResults=100`, {
+      const issues = await axios.get(`/rest/api/latest/search?jql=updated>="${from}" ${projectCondition} &maxResults=100`, {
         auth: {
           username: this.state.userEmail,
           password: this.state.token
@@ -158,7 +158,7 @@ class App extends Component {
       let numberOfResults = issues.data.maxResults;
       let totalNumberOfResults = issues.data.total;
       while(numberOfResults < totalNumberOfResults) {
-        const issuesPage = await axios.get(`/rest/api/latest/search?jql=updated>="${from}" AND updated<="${to}" ${projectCondition} &maxResults=100&startAt=${numberOfResults+1}`, {
+        const issuesPage = await axios.get(`/rest/api/latest/search?jql=updated>="${from}" ${projectCondition} &maxResults=100&startAt=${numberOfResults+1}`, {
           auth: {
             username: this.state.userEmail,
             password: this.state.token
@@ -183,7 +183,7 @@ class App extends Component {
       let worklogs = []
       for(let i = 0; i < mappedIssues.length; i++){
         const issue = mappedIssues[i];
-        const issueWorklogs = await axios.get(`/rest/api/latest/issue/${issue.id}/worklog?jql=updated>="${from}" AND updated<="${to}"&maxResults=100`, {
+        const issueWorklogs = await axios.get(`/rest/api/latest/issue/${issue.id}/worklog?jql=started>="${from}" AND started<="${to}"&maxResults=100`, {
           auth: {
             username: this.state.userEmail,
             password: this.state.token
@@ -200,7 +200,7 @@ class App extends Component {
           id: worklog.id,
           timeSpentSeconds: worklog.timeSpentSeconds,
           started: worklog.started,
-          startedDayOfWeek: moment(worklog.started).add(-1, 'day').format('dddd'),
+          startedDayOfWeek: moment(worklog.started).format('dddd'),
         }));
 
         worklogs = [...worklogs, newWorklogs];
