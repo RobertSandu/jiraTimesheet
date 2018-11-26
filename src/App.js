@@ -280,81 +280,81 @@ class App extends Component {
   renderTable() {
     const { mappedWorklogs } = this.state;
     return (
-      <div>
+      <React.Fragment>
         {
           Object.keys(mappedWorklogs).map(key => {
             const userWorklogs = mappedWorklogs[key];
 
             return (
-              <React.Fragment>
-              <Row type="flex">
-                <Col span={3}>
-                  Issue
-                </Col>
-                <Col span={3}>
-                  Monday
-                </Col>
-                <Col span={3}>
-                  Tuesday
-                </Col>
-                <Col span={3}>
-                  Wednesday
-                </Col>
-                <Col span={3}>
-                  Thursday
-                </Col>
-                <Col span={3}>
-                  Friday
-                </Col>
-                <Col span={3}>
-                  Saturday
-                </Col>
-                <Col span={3}>
-                  Sunday
-                </Col>
-              </Row>
-              <Row type="flex">
-                <Col span={24}>
-                  {key}
-                </Col>
-              </Row>
-              {
-                userWorklogs.map(worklog => {
-                  return (
-                    <Row type="flex">
-                      <Col span={3}>
-                        {worklog['issueKey']}
-                      </Col>
-                      <Col span={3}>
-                        {worklog['Monday']}
-                      </Col>
-                      <Col span={3}>
-                        {worklog['Tuesday']}
-                      </Col>
-                      <Col span={3}>
-                        {worklog['Wednesday']}
-                      </Col>
-                      <Col span={3}>
-                        {worklog['Thursday']}
-                      </Col>
-                      <Col span={3}>
-                        {worklog['Friday']}
-                      </Col>
-                      <Col span={3}>
-                        {worklog['Saturday']}
-                      </Col>
-                      <Col span={3}>
-                        {worklog['Sunday']}
-                      </Col>
-                    </Row>
-                  )
-                })
-              }
-              </React.Fragment>
+              <div className="row">
+                <Row type="flex">
+                  <Col span={3}>
+                    Issue
+                  </Col>
+                  <Col span={3}>
+                    Monday
+                  </Col>
+                  <Col span={3}>
+                    Tuesday
+                  </Col>
+                  <Col span={3}>
+                    Wednesday
+                  </Col>
+                  <Col span={3}>
+                    Thursday
+                  </Col>
+                  <Col span={3}>
+                    Friday
+                  </Col>
+                  <Col span={3}>
+                    Saturday
+                  </Col>
+                  <Col span={3}>
+                    Sunday
+                  </Col>
+                </Row>
+                <Row type="flex">
+                  <Col span={24}>
+                    {key}
+                  </Col>
+                </Row>
+                {
+                  userWorklogs.map(worklog => {
+                    return (
+                      <Row type="flex">
+                        <Col span={3}>
+                          {worklog['issueKey']}
+                        </Col>
+                        <Col span={3}>
+                          {worklog['Monday']}
+                        </Col>
+                        <Col span={3}>
+                          {worklog['Tuesday']}
+                        </Col>
+                        <Col span={3}>
+                          {worklog['Wednesday']}
+                        </Col>
+                        <Col span={3}>
+                          {worklog['Thursday']}
+                        </Col>
+                        <Col span={3}>
+                          {worklog['Friday']}
+                        </Col>
+                        <Col span={3}>
+                          {worklog['Saturday']}
+                        </Col>
+                        <Col span={3}>
+                          {worklog['Sunday']}
+                        </Col>
+                      </Row>
+                    )
+                  })
+                }
+              </div>
             )
           })
         }
-      </div>
+      </React.Fragment>
     )
   }
 
@@ -399,7 +399,7 @@ class App extends Component {
           </Menu>
         </Header>
         <Content style={{ padding: '50px 50px' }}>
-          <Row type="flex" justify="center">
+          <Row type="flex" justify="center" className="top-section">
             <Col span={12}>
               <Card title="Settings" bordered={false}>
                 <Row type="flex" justify="center">

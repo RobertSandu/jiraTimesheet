@@ -1,3 +1,26 @@
 .top-padding {
   padding-top: 10px;
 }
+.top-section .ant-card .ant-card-body > .ant-row-flex > div {
+  margin-right: 15px;
+}
+.ant-layout-content > .top-padding .ant-card-body .ant-col-24 .row + .row {
+  margin-top: 20px;
+}
+.ant-layout-content > .top-padding .ant-card-body .ant-col-24 .row > .ant-row-flex {
+  padding: 0 10px;
+}
+.ant-layout-content > .top-padding .ant-card-body .ant-col-24 .row > .ant-row-flex:first-child {
+  background: #eee;
+  font-weight: bold;
+  padding: 5px 10px;
+}
+.ant-layout-content > .top-padding .ant-card-body .ant-col-24 .row > .ant-row-flex:nth-child(2) {
+  font-weight: bold;
+  margin: 10px 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+.ant-layout-content > .top-padding .ant-card-body .ant-col-24 .row > .ant-row-flex > .ant-col-3:first-child {
+  font-weight: bold;
+}
